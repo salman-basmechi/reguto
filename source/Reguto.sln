@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reguto.Annotations", "Reguto.Annotations\Reguto.Annotations.csproj", "{E1C1C008-A118-4B60-92A7-70C83B35B708}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reguto", "Reguto\Reguto.csproj", "{D759A890-9329-4F35-A6F1-4FD2EF0CE72B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reguto", "Reguto\Reguto.csproj", "{D759A890-9329-4F35-A6F1-4FD2EF0CE72B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{70BF01FA-E250-47BC-8C73-0ABFB6632D56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reguto.Test", "..\test\Reguto.Test\Reguto.Test.csproj", "{FD67B79A-E8AD-4DBA-A429-CBD01877B55A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +25,16 @@ Global
 		{D759A890-9329-4F35-A6F1-4FD2EF0CE72B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D759A890-9329-4F35-A6F1-4FD2EF0CE72B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D759A890-9329-4F35-A6F1-4FD2EF0CE72B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD67B79A-E8AD-4DBA-A429-CBD01877B55A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD67B79A-E8AD-4DBA-A429-CBD01877B55A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD67B79A-E8AD-4DBA-A429-CBD01877B55A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD67B79A-E8AD-4DBA-A429-CBD01877B55A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FD67B79A-E8AD-4DBA-A429-CBD01877B55A} = {70BF01FA-E250-47BC-8C73-0ABFB6632D56}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D425702E-64A2-4C42-8833-79D8FF1D4600}
