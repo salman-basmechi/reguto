@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Reguto.Annotations;
 using Reguto.Test.FakeObjects;
 using System.Reflection;
 using Xunit;
@@ -66,6 +65,19 @@ namespace Reguto.Test
             var serviceType = service.GetType();
 
             Assert.Equal(typeof(SelfService), serviceType);
+        }
+
+        [Fact]
+        public void Test_Singleton_Lifetime()
+        {
+            services.ScanAndRegister(assembly);
+
+            var serviceProvider = services.BuildServiceProvider();
+
+            var service1 = serviceProvider.GetService<IFactory>();
+            var service2 = serviceProvider.GetService<IFactory>();
+
+            Assert.Equal(service1, service2);
         }
     }
 }
