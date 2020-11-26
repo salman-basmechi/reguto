@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Reguto.Annotations;
+using Reguto.Test.FakeObjects;
 using System.Reflection;
 using Xunit;
 
@@ -54,19 +55,4 @@ namespace Reguto.Test
             Assert.Equal(typeof(Injectable), serviceType);
         }
     }
-
-    public interface IService { }
-
-    [Service]
-    public class Service : IService { }
-
-    public interface IFactory { }
-
-    [Factory]
-    public class Factory : IFactory { }
-
-    public interface IInjectable { }
-
-    [Injectable(InjectionMode.Transient)]
-    public class Injectable : IInjectable { }
 }
