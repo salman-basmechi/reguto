@@ -99,5 +99,18 @@ namespace Reguto.Test
             Assert.NotEqual(service3, service2);
             Assert.NotEqual(service3, service1);
         }
+
+        [Fact]
+        public void Test_Transient_Lifetime()
+        {
+            services.ScanAndRegister(assembly);
+
+            var serviceProvider = services.BuildServiceProvider();
+
+            var service1 = serviceProvider.GetService<IInjectable>();
+            var service2 = serviceProvider.GetService<IInjectable>();
+
+            Assert.NotEqual(service1, service2);
+        }
     }
 }
