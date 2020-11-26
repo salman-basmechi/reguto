@@ -16,8 +16,13 @@ namespace Reguto
             services.ConfigureOptions(configuration, assemblies);
         }
 
-        public static void ConfigureOptions(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
+        public static void ConfigureOptions(this IServiceCollection services, IConfiguration configuration, params Assembly[] assemblies)
         {
+            if(assemblies is null)
+            {
+                return;
+            }
+
             var options = from assembly in assemblies
                           from option in assembly.FindOptions()
                           select option;
@@ -41,6 +46,11 @@ namespace Reguto
 
         private static void ConfigureOption(this IServiceCollection services, IConfiguration configuration, (Type Type, string Section) option)
         {
+            if (configuration is null)
+            {
+                throw new ArgumentNullException(nameof(configuration));
+            }
+
             var section = configuration.GetSection(option.Section);
             var extensionType = typeof(OptionsConfigurationServiceCollectionExtensions);
             string methodName = nameof(OptionsConfigurationServiceCollectionExtensions.Configure);
