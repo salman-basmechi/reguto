@@ -79,5 +79,25 @@ namespace Reguto.Test
 
             Assert.Equal(service1, service2);
         }
+
+        [Fact]
+        public void Test_Scoped_Lifetime()
+        {
+            services.ScanAndRegister(assembly);
+
+            var serviceProvider = services.BuildServiceProvider();
+
+            var scope1 = serviceProvider.CreateScope();
+            var service1 = scope1.ServiceProvider.GetService<IService>();
+            var service2 = scope1.ServiceProvider.GetService<IService>();
+
+            Assert.Equal(service1, service2);
+
+            var scope2 = serviceProvider.CreateScope();
+            var service3 = scope2.ServiceProvider.GetService<IService>();
+
+            Assert.NotEqual(service3, service2);
+            Assert.NotEqual(service3, service1);
+        }
     }
 }
