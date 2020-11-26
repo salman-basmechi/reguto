@@ -14,8 +14,13 @@ namespace Reguto
             services.ScanAndRegister(assemblies);
         }
 
-        public static void ScanAndRegister(this IServiceCollection services, Assembly[] assemblies)
+        public static void ScanAndRegister(this IServiceCollection services, params Assembly[] assemblies)
         {
+            if(assemblies is null)
+            {
+                return;
+            }
+
             services.ScanAndRegister(assemblies, InjectionMode.Singleton, true);
             services.ScanAndRegister(assemblies, InjectionMode.Scoped, true);
             services.ScanAndRegister(assemblies, InjectionMode.Transient, true);
