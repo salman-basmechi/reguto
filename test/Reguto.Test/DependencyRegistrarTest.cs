@@ -40,6 +40,19 @@ namespace Reguto.Test
 
             Assert.Equal(typeof(Factory), serviceType);
         }
+
+        [Fact]
+        public void Test_Injectables()
+        {
+            services.ScanAndRegister(assembly);
+
+            var serviceProvider = services.BuildServiceProvider();
+
+            var service = serviceProvider.GetService<IInjectable>();
+            var serviceType = service.GetType();
+
+            Assert.Equal(typeof(Injectable), serviceType);
+        }
     }
 
     public interface IService { }
@@ -51,4 +64,9 @@ namespace Reguto.Test
 
     [Factory]
     public class Factory : IFactory { }
+
+    public interface IInjectable { }
+
+    [Injectable(InjectionMode.Transient)]
+    public class Injectable : IInjectable { }
 }
