@@ -41,8 +41,7 @@ namespace Reguto
                                               {
                                                   var injectionAttributeType = typeof(InjectableAttribute);
                                                   var customeAttribute = type.GetCustomAttributes()
-                                                                             .FirstOrDefault(c => c.GetType() == injectionAttributeType ||
-                                                                                                  c.GetType().BaseType == injectionAttributeType);
+                                                                             .FirstOrDefault(c => c.GetType().IsSubclassOf(injectionAttributeType));
 
                                                   if (customeAttribute is null)
                                                   {
