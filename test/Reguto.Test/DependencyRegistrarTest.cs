@@ -54,5 +54,18 @@ namespace Reguto.Test
 
             Assert.Equal(typeof(Injectable), serviceType);
         }
+
+        [Fact]
+        public void Test_AsSelf()
+        {
+            services.ScanAndRegister(assembly);
+
+            var serviceProvider = services.BuildServiceProvider();
+
+            var service = serviceProvider.GetService<SelfService>();
+            var serviceType = service.GetType();
+
+            Assert.Equal(typeof(SelfService), serviceType);
+        }
     }
 }
