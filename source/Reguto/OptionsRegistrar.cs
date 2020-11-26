@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Reguto.Annotations;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -17,39 +18,46 @@ namespace Reguto
 
         public static void ConfigureOptions(this IServiceCollection services, IConfiguration configuration, Assembly[] assemblies)
         {
-            foreach (var assembly in assemblies)
+            var options = from assembly in assemblies
+                          from option in assembly.FindOptions()
+                          select option;
+
+            foreach (var option in options)
             {
-                var options = from type in assembly.GetTypes()
-                              let optionAttribute = type.GetCustomAttributes()
-                                                        .FirstOrDefault(c => c.GetType() == typeof(OptionsAttribute))
-                              where optionAttribute != null
-                              select new
-                              {
-                                  Type = type,
-                                  ((OptionsAttribute)optionAttribute).Section
-                              };
-
-                foreach (var option in options)
-                {
-                    var section = configuration.GetSection(option.Section);
-                    var extensionType = typeof(OptionsConfigurationServiceCollectionExtensions);
-                    string methodName = nameof(OptionsConfigurationServiceCollectionExtensions.Configure);
-
-                    extensionType.GetMethods()
-                                 .Where(c => c.Name == methodName)
-                                 .First(c =>
-                                 {
-                                     var parameters = c.GetParameters()
-                                                       .ToArray();
-
-                                     return parameters.Length == 2 &&
-                                            parameters[0].ParameterType == typeof(IServiceCollection) &&
-                                            parameters[1].ParameterType == typeof(IConfiguration);
-                                 })
-                                 .MakeGenericMethod(option.Type)
-                                 .Invoke(null, new object[] { services, section });
-                }
+                services.ConfigureOption(configuration, option);
             }
+        }
+
+        private static IEnumerable<(Type Type, string Section)> FindOptions(this Assembly assembly)
+        {
+            var options = from type in assembly.GetTypes()
+                          let optionsAttibute = (OptionsAttribute)type.GetCustomAttributes()
+                                                                      .FirstOrDefault(c => c.GetType() == typeof(OptionsAttribute))
+                          where optionsAttibute is not null
+                          select (type, optionsAttibute.Section);
+
+            return options;
+        }
+
+        private static void ConfigureOption(this IServiceCollection services, IConfiguration configuration, (Type Type, string Section) option)
+        {
+            var section = configuration.GetSection(option.Section);
+            var extensionType = typeof(OptionsConfigurationServiceCollectionExtensions);
+            string methodName = nameof(OptionsConfigurationServiceCollectionExtensions.Configure);
+
+            extensionType.GetMethods()
+                         .Where(c => c.Name == methodName)
+                         .First(c =>
+                         {
+                             var parameters = c.GetParameters()
+                                               .ToArray();
+
+                             return parameters.Length == 2 &&
+                                    parameters[0].ParameterType == typeof(IServiceCollection) &&
+                                    parameters[1].ParameterType == typeof(IConfiguration);
+                         })
+                         .MakeGenericMethod(option.Type)
+                         .Invoke(null, new object[] { services, section });
         }
     }
 }
