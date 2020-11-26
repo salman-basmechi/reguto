@@ -10,13 +10,13 @@ namespace Reguto
 {
     public static class OptionsRegistrar
     {
-        public static void ConfigureOptions(this IServiceCollection services, IConfiguration configuration)
+        public static void ScanAndConfigureOptions(this IServiceCollection services, IConfiguration configuration)
         {
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-            services.ConfigureOptions(configuration, assemblies);
+            services.ScanAndConfigureOptions(configuration, assemblies);
         }
 
-        public static void ConfigureOptions(this IServiceCollection services, IConfiguration configuration, params Assembly[] assemblies)
+        public static void ScanAndConfigureOptions(this IServiceCollection services, IConfiguration configuration, params Assembly[] assemblies)
         {
             if(assemblies is null)
             {
