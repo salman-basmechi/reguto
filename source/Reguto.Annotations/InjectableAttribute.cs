@@ -2,7 +2,7 @@
 
 namespace Reguto.Annotations
 {
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public class InjectableAttribute : Attribute
     {
         public InjectableAttribute(InjectionMode mode)
