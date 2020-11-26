@@ -16,7 +16,7 @@ namespace Reguto
 
         public static void ScanAndRegister(this IServiceCollection services, params Assembly[] assemblies)
         {
-            if(assemblies is null)
+            if (assemblies is null)
             {
                 return;
             }
@@ -41,7 +41,13 @@ namespace Reguto
                                               {
                                                   var injectionAttributeType = typeof(InjectableAttribute);
                                                   var customeAttribute = type.GetCustomAttributes()
-                                                                             .FirstOrDefault(c => c.GetType().IsSubclassOf(injectionAttributeType));
+                                                                             .FirstOrDefault(attribute =>
+                                                                             {
+                                                                                 var attributeType = attribute.GetType();
+
+                                                                                 return attributeType == injectionAttributeType ||
+                                                                                        attributeType.IsSubclassOf(injectionAttributeType);
+                                                                             });
 
                                                   if (customeAttribute is null)
                                                   {
