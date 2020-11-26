@@ -27,10 +27,28 @@ namespace Reguto.Test
 
             Assert.Equal(typeof(Service), serviceType);
         }
+
+        [Fact]
+        public void Test_Factories()
+        {
+            services.ScanAndRegister(assembly);
+
+            var serviceProvider = services.BuildServiceProvider();
+
+            var service = serviceProvider.GetService<IFactory>();
+            var serviceType = service.GetType();
+
+            Assert.Equal(typeof(Factory), serviceType);
+        }
     }
 
     public interface IService { }
 
     [Service]
     public class Service : IService { }
+
+    public interface IFactory { }
+
+    [Factory]
+    public class Factory : IFactory { }
 }
