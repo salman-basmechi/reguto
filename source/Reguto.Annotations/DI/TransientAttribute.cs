@@ -1,17 +1,17 @@
 ﻿using System;
 
-namespace Reguto.Annotations
+namespace Reguto.Annotations.DI
 {
     /// <summary>
-    /// Annotate as scoped class by singleton lifetime.
+    /// Annotate as scoped class by transient lifetime.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
-    public class SingletonAttribute : InjectableAttribute
+    public class TransientAttribute : InjectableAttribute
     {
         /// <summary>
         /// Create new instance.
         /// </summary>
-        public SingletonAttribute() : base(InjectionMode.Singleton)
+        public TransientAttribute() : base(InjectionMode.Transient)
         {
         }
     }

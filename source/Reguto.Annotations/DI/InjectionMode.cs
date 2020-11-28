@@ -1,4 +1,4 @@
-﻿namespace Reguto.Annotations
+﻿namespace Reguto.Annotations.DI
 {
     /// <summary>
     /// Dependency injection mode
@@ -14,7 +14,7 @@
         /// Scoped lifetime
         /// </summary>
         Scoped = 2,
-        
+
         /// <summary>
         /// Transient lifetime
         /// </summary>

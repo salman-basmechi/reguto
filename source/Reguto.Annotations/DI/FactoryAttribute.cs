@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace Reguto.Annotations
+namespace Reguto.Annotations.DI
 {
     /// <summary>
-    /// Annotate as repository class by scoped lifetime.
+    /// Annotate as factory class by singleton lifetime.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
-    public class RepositoryAttribute : ScopedAttribute
-    { 
+    public class FactoryAttribute : SingletonAttribute
+    {
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Reguto.Annotations
+namespace Reguto.Annotations.Options
 {
     /// <summary>
     /// Annotate class as options.

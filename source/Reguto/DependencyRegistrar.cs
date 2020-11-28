@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Reguto.Annotations;
+using Reguto.Annotations.DI;
 using System;
 using System.Linq;
 using System.Reflection;

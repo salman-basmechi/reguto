@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Reguto.Annotations
+namespace Reguto.Annotations.DI
 {
     /// <summary>
     /// Annotate as injectable class.

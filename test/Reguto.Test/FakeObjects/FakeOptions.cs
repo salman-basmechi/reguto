@@ -1,4 +1,5 @@
 ﻿using Reguto.Annotations;
+using Reguto.Annotations.Options;
 
 namespace Reguto.Test.FakeObjects
 {
