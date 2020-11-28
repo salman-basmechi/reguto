@@ -3,6 +3,9 @@ Scan and register all dependencies and options based on attribute.
 
 You can get the latest stable release from the [nuget.org](http://www.nuget.org/packages/reguto) or from [github releases page](https://github.com/salmanbasmechi/reguto/releases).
 
+Getting Started
+---------------
+
 ```C#
     public interface IIdentityService
     {
