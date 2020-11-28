@@ -29,6 +29,18 @@ namespace Reguto.Test
             Assert.NotNull(options);
         }
 
+        [Fact]
+        public void Test_Options_Values()
+        {
+            services.ScanAndConfigureOptions(configuration, assembly);
+
+            var serviceProvider = services.BuildServiceProvider();
+            var options = serviceProvider.GetService<IOptions<FakeOptions>>();
+
+            Assert.Equal(123, options.Value.Id);
+            Assert.Equal("secret", options.Value.Secret);
+        }
+
         private IOptions<FakeOptions> GetFakeOptions()
         {
             services.ScanAndConfigureOptions(configuration, assembly);
