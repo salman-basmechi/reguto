@@ -19,7 +19,7 @@ Annotate service class as scoped dependency with ServiceAttribute
 
         public IdentityService(IOptions<JwtOptions> options)
         {
-            this.options = options ?? throw new System.ArgumentNullException(nameof(options));
+            this.options = options ?? throw new ArgumentNullException(nameof(options));
         }
 
         public Task<AuthenticationResponse> AuthenticateAsync(string username, string password)
@@ -34,9 +34,9 @@ Annotate options class and determine value section in appSettings.json or other 
     [Options("Jwt")]
     public class JwtOptions
     {
-        public string Secret { get; init; }
+        public string Secret { get; set; }
 
-        public string ExpiryMinutes { get; init; }
+        public string ExpiryMinutes { get; set; }
     }
 ```
 
