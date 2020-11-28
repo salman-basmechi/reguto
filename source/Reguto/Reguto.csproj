@@ -12,6 +12,7 @@
     <Company>Salman Basmechi</Company>
     <Copyright>@2020 - Salman Basmechi</Copyright>
     <NeutralLanguage>en</NeutralLanguage>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

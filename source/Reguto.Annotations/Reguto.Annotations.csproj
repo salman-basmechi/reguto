@@ -12,6 +12,7 @@
     <PackageProjectUrl>https://github.com/SalmanBasmechi/reguto</PackageProjectUrl>
     <Authors>Salman Basmechi</Authors>
     <Copyright>@2020 - Salman Basmechi</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
