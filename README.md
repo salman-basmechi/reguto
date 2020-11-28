@@ -7,40 +7,40 @@ Getting Started
 ---------------
 
 ```C#
-    public interface IIdentityService
-    {
-        Task<AuthenticationResponse> AuthenticateAsync(string username, string password);
-    }
+public interface IIdentityService
+{
+    Task<AuthenticationResponse> AuthenticateAsync(string username, string password);
+}
 ```
 
 Annotate service class as scoped dependency with ServiceAttribute
 ```C#
-    [Service]
-    public class IdentityService : IIdentityService
+[Service]
+public class IdentityService : IIdentityService
+{
+    private readonly IOptions<JwtOptions> options;
+
+    public IdentityService(IOptions<JwtOptions> options)
     {
-        private readonly IOptions<JwtOptions> options;
-
-        public IdentityService(IOptions<JwtOptions> options)
-        {
-            this.options = options ?? throw new ArgumentNullException(nameof(options));
-        }
-
-        public Task<AuthenticationResponse> AuthenticateAsync(string username, string password)
-        {
-            throw new NotImplementedException();
-        }
+        this.options = options ?? throw new ArgumentNullException(nameof(options));
     }
+
+    public Task<AuthenticationResponse> AuthenticateAsync(string username, string password)
+    {
+        throw new NotImplementedException();
+    }
+}
 ```
 
 Annotate options class and determine value section in appSettings.json or other settings file.
 ```C#
-    [Options("Jwt")]
-    public class JwtOptions
-    {
-        public string Secret { get; set; }
+[Options("Jwt")]
+public class JwtOptions
+{
+    public string Secret { get; set; }
 
-        public string ExpiryMinutes { get; set; }
-    }
+    public string ExpiryMinutes { get; set; }
+}
 ```
 
 Register all dependencies and options in startup.
