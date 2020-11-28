@@ -2,6 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Reguto default attributes.</Description>
+    <RepositoryUrl>https://github.com/SalmanBasmechi/reguto</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Reguto; Reguto.Annotations; DI; Dependency Injection; Microsoft Extensions</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageProjectUrl>https://github.com/SalmanBasmechi/reguto</PackageProjectUrl>
+    <Authors>Salman Basmechi</Authors>
+    <Copyright>@2020 - Salman Basmechi</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>true</Optimize>
   </PropertyGroup>
 
 </Project>

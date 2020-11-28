@@ -2,6 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Salman Basmechi</Authors>
+    <Description>Reguto register all dependencies and options automatically based on attributes.</Description>
+    <PackageProjectUrl>https://github.com/SalmanBasmechi/reguto</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SalmanBasmechi/reguto</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Reguto; Reguto.Annotations; DI; Dependency Injection; Microsoft Extensions</PackageTags>
+    <Company>Salman Basmechi</Company>
+    <Copyright>@2020 - Salman Basmechi</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>true</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
