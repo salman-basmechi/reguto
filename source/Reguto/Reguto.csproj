@@ -16,6 +16,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>true</Optimize>
+    <DocumentationFile>C:\Users\No1\source\repos\reguto\source\Reguto\Reguto.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

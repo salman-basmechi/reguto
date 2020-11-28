@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Reguto.Annotations</name>
+    </assembly>
+    <members>
+        <member name="T:Reguto.Annotations.FactoryAttribute">
+            <summary>
+            Annotate as factory class by singleton lifetime.
+            </summary>
+        </member>
+        <member name="T:Reguto.Annotations.InjectableAttribute">
+            <summary>
+            Annotate as injectable class.
+            </summary>
+        </member>
+        <member name="M:Reguto.Annotations.InjectableAttribute.#ctor(Reguto.Annotations.InjectionMode)">
+            <summary>
+            Create new instance by entry mode.
+            </summary>
+            <param name="mode"></param>
+        </member>
+        <member name="P:Reguto.Annotations.InjectableAttribute.Mode">
+            <summary>
+            Get injection mode
+            </summary>
+        </member>
+        <member name="P:Reguto.Annotations.InjectableAttribute.AsSelf">
+            <summary>
+            Register class as itself or not.
+            </summary>
+        </member>
+        <member name="T:Reguto.Annotations.InjectionMode">
+            <summary>
+            Dependency injection mode
+            </summary>
+        </member>
+        <member name="F:Reguto.Annotations.InjectionMode.Singleton">
+            <summary>
+            Singleton lifetime
+            </summary>
+        </member>
+        <member name="F:Reguto.Annotations.InjectionMode.Scoped">
+            <summary>
+            Scoped lifetime
+            </summary>
+        </member>
+        <member name="F:Reguto.Annotations.InjectionMode.Transient">
+            <summary>
+            Transient lifetime
+            </summary>
+        </member>
+        <member name="T:Reguto.Annotations.OptionsAttribute">
+            <summary>
+            Annotate class as options.
+            </summary>
+        </member>
+        <member name="M:Reguto.Annotations.OptionsAttribute.#ctor(System.String)">
+            <summary>
+            Create new instance, section mode used to bind application settings property to annotated class.
+            </summary>
+            <param name="section"></param>
+        </member>
+        <member name="P:Reguto.Annotations.OptionsAttribute.Section">
+            <summary>
+            Section name
+            </summary>
+        </member>
+        <member name="T:Reguto.Annotations.RepositoryAttribute">
+            <summary>
+            Annotate as repository class by scoped lifetime.
+            </summary>
+        </member>
+        <member name="T:Reguto.Annotations.ScopedAttribute">
+            <summary>
+            Annotate as scoped class by scoped lifetime.
+            </summary>
+        </member>
+        <member name="M:Reguto.Annotations.ScopedAttribute.#ctor">
+            <summary>
+            Create new instance.
+            </summary>
+        </member>
+        <member name="T:Reguto.Annotations.ServiceAttribute">
+            <summary>
+            Annotate as service class by scoped lifetime.
+            </summary>
+        </member>
+        <member name="T:Reguto.Annotations.SingletonAttribute">
+            <summary>
+            Annotate as scoped class by singleton lifetime.
+            </summary>
+        </member>
+        <member name="M:Reguto.Annotations.SingletonAttribute.#ctor">
+            <summary>
+            Create new instance.
+            </summary>
+        </member>
+        <member name="T:Reguto.Annotations.TransientAttribute">
+            <summary>
+            Annotate as scoped class by transient lifetime.
+            </summary>
+        </member>
+        <member name="M:Reguto.Annotations.TransientAttribute.#ctor">
+            <summary>
+            Create new instance.
+            </summary>
+        </member>
+    </members>
+</doc>

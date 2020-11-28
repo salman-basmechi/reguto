@@ -8,14 +8,30 @@ using System.Reflection;
 
 namespace Reguto
 {
+    /// <summary>
+    /// Scan and register all options.
+    /// </summary>
     public static class OptionsRegistrar
     {
+        /// <summary>
+        /// Scan app domain assemblies and register all options.
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="configuration"></param>
+        /// <exception cref="ArgumentException"></exception>
         public static void ScanAndConfigureOptions(this IServiceCollection services, IConfiguration configuration)
         {
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
             services.ScanAndConfigureOptions(configuration, assemblies);
         }
 
+        /// <summary>
+        /// Scan entry assemblies and register all options.
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="configuration"></param>
+        /// <param name="assemblies"></param>
+        /// <exception cref="ArgumentException"></exception>
         public static void ScanAndConfigureOptions(this IServiceCollection services, IConfiguration configuration, params Assembly[] assemblies)
         {
             if(assemblies is null)

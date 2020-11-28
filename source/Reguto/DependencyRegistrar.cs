@@ -6,14 +6,26 @@ using System.Reflection;
 
 namespace Reguto
 {
+    /// <summary>
+    /// Scan and register all dependencies.
+    /// </summary>
     public static class DependencyRegistrar
     {
+        /// <summary>
+        /// Scan app domain assemblies and register all dependencies that have any reguto attributes.
+        /// </summary>
+        /// <param name="services"></param>
         public static void ScanAndRegister(this IServiceCollection services)
         {
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
             services.ScanAndRegister(assemblies);
         }
 
+        /// <summary>
+        /// Scan entry assemblies and register all dependencies that have any reguto attributes.
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="assemblies"></param>
         public static void ScanAndRegister(this IServiceCollection services, params Assembly[] assemblies)
         {
             if (assemblies is null)
