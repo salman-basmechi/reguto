@@ -3,7 +3,7 @@
 namespace Reguto.DI.Abstractions
 {
     /// <summary>
-    /// Annotate as scoped class by transient lifetime.
+    /// Annotate as transient class by transient lifetime.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class)]
     public class TransientAttribute : InjectableAttribute
