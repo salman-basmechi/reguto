@@ -57,8 +57,8 @@ namespace Web
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.ScanAndRegister();
-            services.ScanAndConfigureOptions(Configuration);
+            services.AddReguto();
+            services.ConfigureReguto(Configuration);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

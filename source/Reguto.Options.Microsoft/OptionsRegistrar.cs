@@ -20,10 +20,10 @@ namespace Reguto.Options.Microsoft
         /// <param name="services"></param>
         /// <param name="configuration"></param>
         /// <exception cref="ArgumentException"></exception>
-        public static void ScanAndConfigureOptions(this IServiceCollection services, IConfiguration configuration)
+        public static void ConfigureReguto(this IServiceCollection services, IConfiguration configuration)
         {
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-            services.ScanAndConfigureOptions(configuration, assemblies);
+            services.ConfigureReguto(configuration, assemblies);
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace Reguto.Options.Microsoft
         /// <param name="configuration"></param>
         /// <param name="assemblies"></param>
         /// <exception cref="ArgumentException"></exception>
-        public static void ScanAndConfigureOptions(this IServiceCollection services, IConfiguration configuration, params Assembly[] assemblies)
+        public static void ConfigureReguto(this IServiceCollection services, IConfiguration configuration, params Assembly[] assemblies)
         {
             var options = from assembly in assemblies
                           from option in assembly.FindOptions()

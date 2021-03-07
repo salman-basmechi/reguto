@@ -32,7 +32,7 @@ namespace Reguto.Options.Microsoft.Test
         [Fact]
         public void Test_Options_Values()
         {
-            services.ScanAndConfigureOptions(configuration, assembly);
+            services.ConfigureReguto(configuration, assembly);
 
             var serviceProvider = services.BuildServiceProvider();
             var options = serviceProvider.GetService<IOptions<FakeOptions>>();
@@ -43,7 +43,7 @@ namespace Reguto.Options.Microsoft.Test
 
         private IOptions<FakeOptions>? GetFakeOptions()
         {
-            services.ScanAndConfigureOptions(configuration, assembly);
+            services.ConfigureReguto(configuration, assembly);
 
             var serviceProvider = services.BuildServiceProvider();
             return serviceProvider?.GetService<IOptions<FakeOptions>>();

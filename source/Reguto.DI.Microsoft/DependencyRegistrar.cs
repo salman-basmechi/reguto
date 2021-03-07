@@ -15,10 +15,10 @@ namespace Reguto.DI.Microsoft
         /// Scan app domain assemblies and register all dependencies that have any reguto attributes.
         /// </summary>
         /// <param name="services"></param>
-        public static void ScanAndRegister(this IServiceCollection services)
+        public static void AddReguto(this IServiceCollection services)
         {
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-            services.ScanAndRegister(assemblies);
+            services.AddReguto(assemblies);
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace Reguto.DI.Microsoft
         /// </summary>
         /// <param name="services"></param>
         /// <param name="assemblies"></param>
-        public static void ScanAndRegister(this IServiceCollection services, params Assembly[] assemblies)
+        public static void AddReguto(this IServiceCollection services, params Assembly[] assemblies)
         {
             services.ScanAndRegister(assemblies, InjectionMode.Singleton, true);
             services.ScanAndRegister(assemblies, InjectionMode.Scoped, true);

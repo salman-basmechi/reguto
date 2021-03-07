@@ -18,7 +18,7 @@ namespace Reguto.DI.Microsoft.Test
         [Fact]
         public void Test_Services()
         {
-            services.ScanAndRegister(assembly);
+            services.AddReguto(assembly);
 
             var serviceProvider = services.BuildServiceProvider();
 
@@ -31,7 +31,7 @@ namespace Reguto.DI.Microsoft.Test
         [Fact]
         public void Test_Factories()
         {
-            services.ScanAndRegister(assembly);
+            services.AddReguto(assembly);
 
             var serviceProvider = services.BuildServiceProvider();
 
@@ -44,7 +44,7 @@ namespace Reguto.DI.Microsoft.Test
         [Fact]
         public void Test_Injectables()
         {
-            services.ScanAndRegister(assembly);
+            services.AddReguto(assembly);
 
             var serviceProvider = services.BuildServiceProvider();
 
@@ -57,7 +57,7 @@ namespace Reguto.DI.Microsoft.Test
         [Fact]
         public void Test_AsSelf()
         {
-            services.ScanAndRegister(assembly);
+            services.AddReguto(assembly);
 
             var serviceProvider = services.BuildServiceProvider();
 
@@ -70,7 +70,7 @@ namespace Reguto.DI.Microsoft.Test
         [Fact]
         public void Test_Singleton_Lifetime()
         {
-            services.ScanAndRegister(assembly);
+            services.AddReguto(assembly);
 
             var serviceProvider = services.BuildServiceProvider();
 
@@ -83,7 +83,7 @@ namespace Reguto.DI.Microsoft.Test
         [Fact]
         public void Test_Scoped_Lifetime()
         {
-            services.ScanAndRegister(assembly);
+            services.AddReguto(assembly);
 
             var serviceProvider = services.BuildServiceProvider();
 
@@ -103,7 +103,7 @@ namespace Reguto.DI.Microsoft.Test
         [Fact]
         public void Test_Transient_Lifetime()
         {
-            services.ScanAndRegister(assembly);
+            services.AddReguto(assembly);
 
             var serviceProvider = services.BuildServiceProvider();
 
