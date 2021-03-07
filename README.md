@@ -1,6 +1,6 @@
 Reguto
 =======
-Scan and register all dependencies and options automatically based on attribute.
+Scan and register all dependencies and options automatically based on attributes.
 
 You can get the latest stable release from the [nuget.org](http://www.nuget.org/packages/reguto) or from [github releases page](https://github.com/salmanbasmechi/reguto/releases).
 
@@ -20,7 +20,7 @@ public class IdentityService : IIdentityService
 
     public IdentityService(IOptions<JwtOptions> options)
     {
-        this.options = options ?? throw new System.ArgumentNullException(nameof(options));
+        this.options = options ?? throw new ArgumentNullException(nameof(options));
     }
 
     public Task<AuthenticationResponse> AuthenticateAsync(string username, string password)
