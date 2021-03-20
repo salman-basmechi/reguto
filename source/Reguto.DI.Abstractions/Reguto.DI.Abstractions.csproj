@@ -3,6 +3,18 @@
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <Nullable>enable</Nullable>
+        <PackageVersion>2.0.0</PackageVersion>
+        <Title>Reguto</Title>
+        <Description>Reguto dependency injection abstractions</Description>
+        <Copyright>@2021 - Salman Basmechi</Copyright>
+        <PackageProjectUrl>https://github.com/salman-basmechi/reguto</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/salman-basmechi/reguto</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>Reguto; Dependency Injection; DI; Microsoft Dependency Injection; Scrutor</PackageTags>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageLicenseUrl>MIT</PackageLicenseUrl>
+        <AssemblyVersion>2.0.0</AssemblyVersion>
+        <FileVersion>2.0.0</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
